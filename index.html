@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Selection</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #4e73df, #1cc88a);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        margin: 12px 0;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .age1 { background-color: #4e73df; color: white; }
+    .age2 { background-color: #1cc88a; color: white; }
+    .age3 { background-color: #f6c23e; color: white; }
+    .age4 { background-color: #e74a3b; color: white; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Select Your Age Range</h1>
+
+    <button class="btn age1" onclick="selectAge('18-21')">18 - 21</button>
+    <button class="btn age2" onclick="selectAge('21-35')">21 - 35</button>
+    <button class="btn age3" onclick="selectAge('35-45')">35 - 45</button>
+    <button class="btn age4" onclick="selectAge('45-65')">45 - 65</button>
+</div>
+
+<script>
+function selectAge(range) {
+    alert("You selected age range: " + range);
+    // You can redirect like this:
+    // window.location.href = "nextpage.html?age=" + range;
+}
+</script>
+
+</body>
+</html>
