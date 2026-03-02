@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Age Selection</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKR9SM8403"></script>
+
+<!-- Google Tag Manager -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-KKR9SM8403');
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W96MDFVC');
 </script>
+<!-- End Google Tag Manager -->
 
 <style>
     body {
@@ -67,21 +70,36 @@
 
 <body>
 
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W96MDFVC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <div class="container">
     <h1>Select Your Age Range</h1>
 
-    <button class="btn age1" onclick="selectAge('18-21')">18 - 21</button>
-    <button class="btn age2" onclick="selectAge('21-35')">21 - 35</button>
-    <button class="btn age3" onclick="selectAge('35-45')">35 - 45</button>
-    <button class="btn age4" onclick="selectAge('45-65')">45 - 65</button>
+    <button class="btn age1" data-age="18-21">18 - 21</button>
+    <button class="btn age2" data-age="21-35">21 - 35</button>
+    <button class="btn age3" data-age="35-45">35 - 45</button>
+    <button class="btn age4" data-age="45-65">45 - 65</button>
 </div>
 
 <script>
-function selectAge(range) {
-    alert("You selected age range: " + range);
-    // You can redirect like this:
-    // window.location.href = "nextpage.html?age=" + range;
-}
+document.querySelectorAll(".btn").forEach(function(button) {
+    button.addEventListener("click", function() {
+        var selectedAge = this.getAttribute("data-age");
+
+        // Push event to GTM
+        dataLayer.push({
+            event: "age_selected",
+            age_range: selectedAge
+        });
+
+        alert("You selected age range: " + selectedAge);
+    });
+});
 </script>
 
 </body>
